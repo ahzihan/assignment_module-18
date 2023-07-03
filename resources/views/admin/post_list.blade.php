@@ -17,11 +17,11 @@ Post List {{Session::get('success')}}
   @forelse($data as $d)
   <tr>
     <td>{{ $d->title }}</td>
-    <td>{{ $d->category->categoryName }}</td>
+    <td>{{ $d->categoryId }}</td>
     <td>{{ $d->created_at }}</td>
     <td>
         <button class="btn btn-sm btn-primary">edit</button> |
-        <button class="btn btn-sm btn-danger">delete</button>
+        <a href="{{ route('post.destroy', $d->id) }}" class="btn btn-sm btn-danger">delete</a>
     </td>
   </tr>
   @empty

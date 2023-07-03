@@ -53,7 +53,7 @@ class AdminController extends Controller
             'photo'=>$photo
         );
         Posts::create($d);
-        return redirect('/post')->with('success','Post Inserted Successfully!');
+        return redirect('admin.post_list')->with('success','Post Inserted Successfully!');
     }
 
     /**
@@ -98,6 +98,10 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $posts=Posts::find($id);
+        $posts->delete();
+
+        return redirect('admin.post_list')->with('success', 'Post Inserted Successfully!');
+
     }
 }
